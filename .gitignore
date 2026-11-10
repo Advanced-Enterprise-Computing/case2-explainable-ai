@@ -1,0 +1,14 @@
+# Python environment and caches
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Names, matriculation numbers and emails for the report's front page (kept private)
+team.json
+
+# Course material stays outside the repo
+Material/
+
+# OS files
+.DS_Store
+Thumbs.db
