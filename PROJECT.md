@@ -28,17 +28,19 @@ Shared context for the team. Read this file and every file in `progress/` at the
 
 The notebook's `# TODO` cells are B2 (the DI formula), C1 (the balance plot), C2 (the two loops and the chosen settings), D1a and D1b (the DiCE and Anchors settings) and D2 (the recommended model).
 
-## Roles and file ownership (proposal, to be agreed)
+## Roles and file ownership
 
 Only a file's owner edits it. Before changing someone else's file, ask them.
 
 | Who | Role | Files |
 |---|---|---|
-| Mohamed Gomaa (issamfarouk) | Notebook (run locally), answers to B and C, the D experiments, report PDF | `report/part_b.md`, `report/part_c.md`, `report/img/`, `report/final/` |
+| Mohamed Gomaa (issamfarouk) | Team lead. Notebook (run locally), answers to B, C, D1a and D1b, report PDF | `report/part_b.md`, `report/part_c.md`, `report/part_d1.md`, `report/img/`, `report/final/`, `results/` |
 | Ahmed Abdelrazek (AhmedElngar) | Part A | `report/part_a.md` |
-| Ahmed Farag (AhmedWilly) | Part D texts and Part E | `report/part_d.md`, `report/part_e.md` |
+| Ahmed Farag (AhmedWilly) | D1c (letter to the applicant), D2 (HR briefing), D3 (works council) and Part E | `report/part_d.md`, `report/part_e.md` |
 
-The course notebook is course material, so it stays out of this repo. Mohamed runs it on his machine and puts its results here (numbers and figures) for everyone.
+Part D is split over two files: `report/part_d1.md` holds the Part D title with D1a and D1b, and `report/part_d.md` continues directly with `## D1c`, then D2 and D3.
+
+The course notebook is course material, so it stays out of this repo. Mohamed runs it on his machine and puts its results here for everyone: the numbers in `results/summary.md`, the figures in `report/img/`.
 
 ## Git
 
@@ -47,14 +49,13 @@ The course notebook is course material, so it stays out of this repo. Mohamed ru
 - Commit messages: one short, clear line.
 - Never commit `.venv/`, `team.json` or the course's files (task sheet, slides, notebook).
 
-## Timeline (proposal)
+## Timeline
 
 | When | What | Who |
 |---|---|---|
-| Tue 10.11 | Agree on roles and the presentation date. Download the paper. | All |
-| Wed 11.11 | Notebook TODOs (B2, C1, C2) | Mohamed |
-| Wed 11.11 – Fri 13.11 | Part A | Ahmed Abdelrazek |
-| Thu 12.11 – Sat 14.11 | Answers to B and C, the D experiments (DiCE, Anchors) | Mohamed |
-| Fri 13.11 – Sat 14.11 | Part D texts and Part E, from the notebook results | Ahmed Farag |
+| Tue 10.11 – Wed 11.11 | Notebook TODOs and full run, results and figures, answers to B, C, D1a and D1b (done) | Mohamed |
+| Wed 11.11 | Roles and the presentation date sent to the team | Mohamed |
+| By Sat 14.11, night | Part A in `report/part_a.md` | Ahmed Abdelrazek |
+| By Sat 14.11, night | D1c, D2, D3 and Part E in `report/part_d.md` and `report/part_e.md`, from `results/summary.md` | Ahmed Farag |
 | Sun 15.11 | Report PDF and review | Mohamed, then all |
 | Mon 16.11 | Final check and submission | Mohamed |
