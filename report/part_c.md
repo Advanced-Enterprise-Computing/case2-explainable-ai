@@ -1,0 +1,21 @@
+# Part C – Mitigating the bias
+
+## C1 – Reweighing
+
+Before reweighing, the training labels tell the model that 35.7 % of men but only 6.8 % of women were recruited; after reweighing, both groups count as 30.0 % recruited, because each recruited woman weighs 4.41, each rejected woman 0.75, each recruited man 0.84 and each rejected man 1.09 (Figure C1; Kamiran & Calders, 2012). The model therefore no longer learns from the overall rates that men are hired more often. It still sees `sex` and the other features, however, so it keeps using sex for equally qualified applicants (mean |SHAP| 0.054 vs. 0.072 for the baseline), which is why the DI only rises from 0.137 to 0.269.
+
+## C2 – Fairness–utility trade-off
+
+Both methods buy fairness with accuracy, but at very different rates (Figure C2). Prejudice Remover adds a fairness penalty to the training objective, and `eta` sets how strongly prejudice is punished (Kamishima et al., 2012). Raising eta from 1 to 100 lifts the DI step by step from 0.164 to 0.839, while accuracy falls from 0.944 to 0.903; only eta = 100 reaches the four-fifths range. Reject Option Classification keeps the model and changes only the decisions it is unsure about: inside the band threshold ± margin, women are accepted and men rejected (Kamiran et al., 2012). Up to a margin of 0.45 it stays below 0.8 (DI 0.636, accuracy 0.869). A finer search finds the acceptable range only in a narrow window around 0.48 (DI 0.909, accuracy 0.837): at 0.49 it already overshoots to 1.344, and at 0.50 the band covers every probability from 0 to 1, so all women are accepted and all men rejected. The DI then becomes infinite and the accuracy drops to 0.527, so large margins do not remove the bias but reverse it. We chose eta = 100 and margin = 0.48, the only tested settings with 0.8 ≤ DI ≤ 1.25. Prejudice Remover reaches parity at a much lower price (accuracy 0.903 vs. 0.837) and in a fairer way: it raises women's selection rate from 5.1 % to 30.7 % while men's stays at 36.6 %, whereas ROC lifts women's rate only to 16.7 % and pushes men's down from 37.0 % to 18.4 %.
+
+## C3 – Comparing the strategies
+
+Sex loses most of its weight wherever the model itself is changed: its mean |SHAP| falls from 0.072 for the baseline to 0.054 with Reweighing, 0.005 with Prejudice Remover and 0 when the column is removed, while skill stays the most important feature (0.20–0.29). Without `sex`, the model gives more weight to education (0.001 → 0.008), which women hold less often at the higher levels, so some sex-related information comes back through this proxy; together with women's slightly lower skill, this keeps the DI at 0.725 (Barocas & Selbst, 2016). The best DI comes from ROC (0.909), although its final decisions depend on sex more directly than those of any other model, because inside its band it accepts women and rejects men (Kamiran et al., 2012); its SHAP values would therefore not describe its decisions and are left out on purpose. A better DI thus does not mean that a model stops using sex-related information, because the DI measures outcomes, not reasons (Feldman et al., 2015).
+
+## References
+
+- Barocas, S., & Selbst, A. D. (2016). Big data's disparate impact. *California Law Review, 104*(3), 671–732. https://doi.org/10.15779/Z38BG31
+- Feldman, M., Friedler, S. A., Moeller, J., Scheidegger, C., & Venkatasubramanian, S. (2015). Certifying and removing disparate impact. *Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*, 259–268. https://doi.org/10.1145/2783258.2783311
+- Kamiran, F., & Calders, T. (2012). Data preprocessing techniques for classification without discrimination. *Knowledge and Information Systems, 33*(1), 1–33. https://doi.org/10.1007/s10115-011-0463-8
+- Kamiran, F., Karim, A., & Zhang, X. (2012). Decision theory for discrimination-aware classification. *2012 IEEE 12th International Conference on Data Mining*, 924–929. https://doi.org/10.1109/ICDM.2012.45
+- Kamishima, T., Akaho, S., Asoh, H., & Sakuma, J. (2012). Fairness-aware classifier with prejudice remover regularizer. *Machine Learning and Knowledge Discovery in Databases (ECML PKDD 2012)*, 35–50. https://doi.org/10.1007/978-3-642-33486-3_3
