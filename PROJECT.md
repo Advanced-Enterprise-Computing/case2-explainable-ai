@@ -26,7 +26,7 @@ Shared context for the team. Read this file and every file in `progress/` at the
 | D | Applicant #1460: DiCE (D1a), Anchors (D1b) and a letter to her (D1c). A note for the HR manager (D2) and one for the works council (D3) | Notebook and text |
 | E | Six misconceptions (E1–E6): true, false or partly true, corrected and backed by the notebook | Text |
 
-The notebook's `# TODO` cells are B2 (the DI formula), C1 (the balance plot) and C2 (the two loops).
+The notebook's `# TODO` cells are B2 (the DI formula), C1 (the balance plot), C2 (the two loops and the chosen settings), D1a and D1b (the DiCE and Anchors settings) and D2 (the recommended model).
 
 ## Roles and file ownership (proposal, to be agreed)
 
@@ -34,18 +34,18 @@ Only a file's owner edits it. Before changing someone else's file, ask them.
 
 | Who | Role | Files |
 |---|---|---|
-| Mohamed Gomaa (issamfarouk) | Notebook, answers to B and C, the D experiments, report PDF | `notebooks/`, `report/part_b.md`, `report/part_c.md`, `report/img/`, `report/final/` |
+| Mohamed Gomaa (issamfarouk) | Notebook (run locally), answers to B and C, the D experiments, report PDF | `report/part_b.md`, `report/part_c.md`, `report/img/`, `report/final/` |
 | Ahmed Abdelrazek (AhmedElngar) | Part A | `report/part_a.md` |
 | Ahmed Farag (AhmedWilly) | Part D texts and Part E | `report/part_d.md`, `report/part_e.md` |
 
-Notebooks merge badly, so only the notebook's owner commits changes to it. Everyone else sends code or numbers to them.
+The course notebook is course material, so it stays out of this repo. Mohamed runs it on his machine and puts its results here (numbers and figures) for everyone.
 
 ## Git
 
 - `git pull` before you start, and push at least twice a day.
 - Commit directly to `main`, touching only your own files.
 - Commit messages: one short, clear line.
-- Never commit `.venv/`, `team.json` or the course's files (task sheet, slides).
+- Never commit `.venv/`, `team.json` or the course's files (task sheet, slides, notebook).
 
 ## Timeline (proposal)
 

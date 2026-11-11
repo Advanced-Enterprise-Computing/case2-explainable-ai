@@ -17,6 +17,7 @@ A company pre-selects job applications with a logistic regression trained on its
 |---|---|
 | `PROJECT.md` | Tasks, deadline, roles and how we work together |
 | `progress/` | One handoff note per person |
+| `report/` | The written answers, one file per part |
 
 ## Team
 
